@@ -15,7 +15,7 @@ jobs:
       run: |
         mkdir -p ./dist
 
-        docker build -t alpine:magick .
+        docker build . -t alpine:magick -f Dockerfile.alpine
 
         docker run --rm -v $(pwd):/workdir alpine:magick cp /ImageMagick/utilities/magick \
           /workdir/dist/magick-x86_64
