@@ -20,6 +20,8 @@ jobs:
         docker run --rm -v $(pwd):/workdir alpine:magick cp /ImageMagick/utilities/magick \
           /workdir/dist/magick-x86_64
 
+        ( cd ./dist && sha256sum magick-x86_64 > magick-x86_64.sha256sum )
+
     - name: Set permissions for dist directory
       run: |
         sudo chown -R "$(id -u)":"$(id -g)" dist/
