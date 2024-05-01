@@ -18,6 +18,8 @@ RUN ./configure --disable-shared --enable-static --without-threads \
 
 RUN make -j"$(nproc)"
 
+RUN strip -s -R .comment -R .gnu.version --strip-unneeded utilities/magick
+
 RUN upx --best --lzma utilities/magick
 
 
