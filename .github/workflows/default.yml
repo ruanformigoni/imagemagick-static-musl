@@ -25,7 +25,7 @@ jobs:
     - name: Set permissions for dist directory
       run: |
         sudo chown -R "$(id -u)":"$(id -g)" dist/
-        sudo chmod -R 766 dist/
+        sudo chmod -R 755 dist/
 
     - name: Upload artifact to release
       uses: actions/upload-artifact@v4
@@ -60,6 +60,6 @@ jobs:
           prerelease: false
           draft: false
           files: |
-            magick
+            magick*
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
